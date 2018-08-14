@@ -1,0 +1,24 @@
+<h1><%= @task.title %></h1>
+
+<div class="well">
+  <%= @task.details %>
+</div>
+
+<span class="state-icon glyphicon glyphicon-<%= @task.completed ? 'check' : 'unchecked' %>"></span>
+<span>This task is <%= @task.completed ? 'completed' : 'not completed yet' %></span>
+
+<br><br>
+
+<%= link_to edit_task_path do %>
+  <div class="btn btn-default">
+    <span class="glyphicon glyphicon-pencil"></span>
+    <span>Edit this task</span>
+  </div>
+<% end %>
+
+<hr>
+
+<%= link_to root_path do %>
+  <span class="glyphicon glyphicon-menu-left"></span>
+  <span>Back to list</span>
+<% end %>

@@ -1,0 +1,22 @@
+<h1>My tasks</h1>
+
+<ul class="list-unstyled">
+  <% @tasks.each do |task| %>
+  <li>
+    <span class="state-icon glyphicon glyphicon-<%= task.completed ? 'check' : 'unchecked' %>"></span>
+    <%= link_to task.title, task_path(task) %>
+    <%= link_to task_path(task),
+          method: :delete,
+          data: { confirm: "Delete #{task.title}?" } do %>
+      <span class="glyphicon glyphicon-trash"></span>
+    <% end %>
+  </li>
+  <% end %>
+</ul>
+
+<hr>
+
+<%= link_to new_task_path do %>
+  <span class="glyphicon glyphicon-plus"></span>
+  <span>Add a new task</span>
+<% end %>
